@@ -1,0 +1,84 @@
+ <div class="container">
+ <div class="row">
+ <div class="col-md-8" style="background-color: ">
+
+<%= form_with model: @order do |f| %>
+
+ <div class="col-md-8 offset-md-1">
+
+<h1>注文情報確認</h1>
+ <table class="table">
+  <thead>
+    <th>商品名</th>
+    <th>単価(税込)</th>
+    <th>数量</th>
+    <th>小計</th>
+  </tbody>
+  </thead>
+
+  <% @cart_items.each do |cart_item| %>
+   <table class="table">
+   <tbody>
+    <td><%= cart_item.item.name%></td>
+
+    <td><%= cart_item.item.with_tax_price%></td>
+
+    <td><%= cart_item.amount%></td>
+
+    <td><%= cart_item.subtotal%></td>
+    <tb><% @total += cart_item.subtotal %></tb>
+
+  </tbody>
+  </thead>
+
+  <% end %>
+
+  <table class="table">
+   <th>送料</th>
+    <th>商品合計</th>
+    <th>請求金額</th>
+  </table>
+
+
+  <table class="table">
+   <tbody>
+
+    <th><%= @order.shipping_fee %></th>
+    <th><%= @total %></th>
+    <th><%= @total + @order.shipping_fee %></th>
+
+   </tbody>
+  </table>
+
+
+
+<p>支払い方法</p>
+<p><%= @order.payment_method_i18n %></p>
+
+<p>お届け先</p>
+
+<% if (params[:order][:select_address]).to_i == 0 %>
+<% elsif (params[:order][:select_address]).to_i == 1 %>
+<% elsif (params[:order][:select_address]).to_i == 2 %>
+<% else %>
+<% end %>
+
+
+<p><%= @order.address_display %></p>
+  <p><%= f.hidden_field :post_code, :value => @order.post_code %></p>
+  <p><%= f.hidden_field :address, :value => @order.address %></p>
+  <p><%= f.hidden_field :name, :value => @order.name %></p>
+  <p><%= f.hidden_field :total_price, :value => @total + @order.shipping_fee %></p>
+  <p><%= f.hidden_field :payment_method, :value => @order.payment_method %></p>
+  <p><%= f.hidden_field :shipping_fee, :value => @order.shipping_fee %></p>
+  <p><%= f.hidden_field :status, :value => "waiting_for_payment" %></p>
+
+
+
+<%= f.submit '注文を確定する' %>
+
+<% end %>
+
+</div>
+
+

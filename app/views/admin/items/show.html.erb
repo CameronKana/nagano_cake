@@ -1,0 +1,29 @@
+ <div class="container">
+ <div class="row">
+ <div class="col-md-8" style="background-color: ">
+<h2>商品詳細</h2>
+
+<table class="table">
+
+<p>商品画像</p>
+<p><%= image_tag @item.get_image %></p>
+
+<p>商品名</p>
+
+<p><%= @item.name %></p>
+<p>ジャンル</p>
+
+<p>商品説明文</p>
+<p><%= @item.introduction %></p>
+
+<p>税抜価格</p>
+<p><%= @item.price %></p>
+
+<p>ステータス</p>
+
+
+  <div>
+  <%= link_to '編集する', edit_admin_item_path(@item) %>
+
+  </div>
+

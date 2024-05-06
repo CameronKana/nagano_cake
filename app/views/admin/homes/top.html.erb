@@ -1,0 +1,39 @@
+<ul class="navbar-nav ml-auto">
+
+ <li class="nav-item">
+
+
+<%= form_with model: @order do |f| %>
+
+ <div class="col-md-8 offset-md-1">
+
+<h3>注文履歴一覧</h3>
+ <table class="table">
+  <thead>
+    <th>購入日時</th>
+    <th>購入者</th>
+    <th>注文個数</th>
+    <th>注文ステータス</th>
+
+  </thead>
+
+ <% @orders.each do |order| %>
+  <tbody>
+   <td><%= order.created_at %></td>
+   <td><%= order.customer.first_name%><%= order.customer.last_name%></td>
+   <td><%= order.order_details.sum(:quantity) %></td>
+   <td><%= order.status_i18n %></td>
+   <tb><%#= f.submit '表示する' %></tb>
+   <%#= link_to "一", admin_order_path %>
+
+  </tbody>
+
+  <% end %>
+  </table>
+
+<% end %>
+
+
+
+  </li>
+</ul>

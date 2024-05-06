@@ -1,0 +1,38 @@
+<ul class="navbar-nav ml-auto">
+
+ <li class="nav-item">
+
+ <div class="col-md-8 offset-md-1">
+
+<h2>商品詳細</h2>
+
+  <td><%= image_tag @item.get_image %></td>
+<p>商品名</p>
+<p><%= @item.name %></p>
+<!--<p>ジャンル</p>-->
+
+<p>商品説明文</p>
+<p><%= @item.introduction %></p>
+
+<td>¥<%= @item.price %></td><td>(税抜）</td>
+
+
+<!--<p>ステータス</p>-->
+
+
+  <div>
+  <%#= link_to '編集する', edit_admin_item_path(@item) %>
+
+  </div>
+
+<%= form_with model: @cart_item do |f| %>
+<%= f.hidden_field :item_id, value: @item.id %>
+  <%= f.select :amount, *[1..20] %>
+  <!--<label for="inputImage">ProfileImage</label>-->
+  <!--<#%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %>-->
+  <%= f.submit "カートに入れる" %>
+<% end %>
+
+ </div>
+ </li>
+</ul>
