@@ -2,7 +2,13 @@ Rails.application.routes.draw do
 scope module: :public do
   get 'customers/edit', to: 'customers#edit'
   patch 'customers' , to: 'customers#update'
-  patch  '/customers/withdraw' => 'customers#withdraw'
+
+  get '/customers/:id/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
+  # 論理削除用のルーティング
+  patch '/customers/:id/withdraw' => 'customers#withdraw', as: 'withdraw'
+
+  # get  '/customers/unsubscribe' => 'customers#unsubscribe'
+  # patch  '/customers/withdraw' => 'customers#withdraw'
 
 end
 # 顧客用

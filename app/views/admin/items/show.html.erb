@@ -4,23 +4,31 @@
 <h2>商品詳細</h2>
 
 <table class="table">
+<thead>
+ <tr>
 
-<p>商品画像</p>
-<p><%= image_tag @item.get_image %></p>
+<th>商品画像</th>
+<th>商品名</th>
+<!--<th>ジャンル</th>-->
+<th>商品説明文</th>
+<th>税抜価格</th>
 
-<p>商品名</p>
+</tr>
+</thead>
+</table>
 
-<p><%= @item.name %></p>
-<p>ジャンル</p>
 
-<p>商品説明文</p>
-<p><%= @item.introduction %></p>
-
-<p>税抜価格</p>
-<p><%= @item.price %></p>
-
-<p>ステータス</p>
-
+<!--<p>ステータス</p>-->
+<table class="table">
+<thead>
+ <tr>
+<td><%= image_tag @item.get_image %></td>
+<td><%= @item.name %></td>
+<td><%= @item.introduction %></td>
+<td><%= @item.price %></td>
+</tr>
+</thead>
+</table>
 
   <div>
   <%= link_to '編集する', edit_admin_item_path(@item) %>

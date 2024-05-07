@@ -9,6 +9,10 @@
 
   <%= link_to "退会しない", customers_my_page_path, :class => "btn btn-primary ms-3" %>
   <%= link_to "退会する", new_customer_session_path, method: :get, :class => "btn btn-danger ms-3", data: { confirm: "本当に退会しますか？" }  %>
+
+  <%#= link_to "退会する", customers_withdraw_path, method: :patch, data: { confilm: "本当に退会しますか？" } %>
+  <%#= link_to "退会しない", user_path(current_user) %>
+
 <!--  <tr>-->
 <!--   <th><%#= link_to "退会しない", customers_my_page_path %>  <%#= link_to "退会する", customers_edit_path %></th>-->
 <!--  </tr>-->

@@ -10,11 +10,7 @@ class ApplicationController < ActionController::Base
     about_path
   end
 
-  # def top
-  #   @items = Item.all
-  #   @item = Item.find(params[:id])
-  # end
-
+ 
 
   protected
 

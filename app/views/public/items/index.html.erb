@@ -1,8 +1,6 @@
-<ul class="navbar-nav ml-auto">
-
- <li class="nav-item">
-
- <div class="col-md-8 offset-md-1">
+<div class="container">
+  <div class="row">
+    <div class="col-12">
 
 <h3>商品一覧</h3>
  <!--<table class="table">-->
@@ -13,24 +11,20 @@
  <!--   <th>注文ステータス</th>-->
  <!-- </tbody>-->
  <!-- </thead>-->
-
 <% @items.each do |item| %>
    <table class="table">
 
-
-  <td> <%= link_to item_path(item) do %>
+  <p> <%= link_to item_path(item) do %>
    <%= image_tag item.get_image %>
    <% end %>
-   </td>
+   </p>
 
-  <td>商品名 <%= item.name %></td>
-  <td></td>
+  <p>商品名 <%= item.name %></p>
   <!--<p>商品説明文：<%#= item.introduction %></p>-->
-  <td> ¥<%= item.price %>（税抜金額）</td>
+  <p> ¥<%= item.price %>（税抜金額）</p>
+</table>
 
 
 <% end %>
  </div>
- </li>
-</ul>
-
+  </div>

@@ -19,7 +19,9 @@
    <td> <%= customer.id %> </td>
    <td> <%= link_to admin_customer_path(customer.id) do %> <%= customer.first_name %> <%= customer.last_name %></td> <% end %>
    <td> <%= customer.email %></td>
-   <td> <%= customer.is_active %></td>
+   <td><%if customer.is_active == true %>
+   <p>有効</p>
+   <% else %><p>無効</p><% end %></td>
    <%#= link_to "詳細", edit_admin_customer_path %>
 
 <% end %>

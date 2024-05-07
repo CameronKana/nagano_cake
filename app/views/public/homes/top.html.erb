@@ -8,9 +8,14 @@
       <p>会員でない方も商品の閲覧はできますが、</p>
       <p>購入には会員登録が必要になります。</p>
 
+ <% @items.each do |item| %>
+ <table class="table">
 
-  <td><%#= image_tag @item.get_image %></td>
-
+  <th> <%= link_to item_path(item) do %>
+    <%= item.name %><%= image_tag item.get_image %></th>
+    <% end %>
+  <th><%= item.price %></th>
+  <% end %>
 
     <%= link_to "全ての商品を見る　", items_path %>
 

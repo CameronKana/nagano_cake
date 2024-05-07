@@ -23,14 +23,14 @@
  <table class="table">
   <th><%= item.id %></th>
 
-  <%#= link_to '商品名', edit_admin_item_path(@item) %>
-  <th><%= item.name %></th>
-
+  <th> <%= link_to admin_item_path(item) do %>
+    <%= item.name %></th>
+   <% end %>
   <!--<th><%#= item.introduction %></th>-->
   <th><%= item.price %></th>
   <!--<th>ジャンル：</th>-->
   <!--<th>ステータス：</th>-->
-<th><%= image_tag item.get_image %></th>
+<th><%#= image_tag item.get_image %></th>
 <% end %>
 
 <% end %>
